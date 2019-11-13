@@ -6,4 +6,4 @@ pluginManagement {
 rootProject.name = "oauth"
 
 includeBuild ("../util-library")
-includeBuild ("../search-core")
+//includeBuild ("../search-core")

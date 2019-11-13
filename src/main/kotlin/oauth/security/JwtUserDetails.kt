@@ -1,9 +1,9 @@
 package oauth.security
 
 import venus.utillibrary.model.base.Role
-import oauth.entity.User
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import venus.utillibrary.model.base.User
 
 class JwtUserDetails : UserDetails {
 
