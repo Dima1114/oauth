@@ -17,7 +17,7 @@ import java.util.HashMap
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = ["oauth.repository"], entityManagerFactoryRef = "entityManager")
+@EnableJpaRepositories(basePackages = ["venus.utillibrary.repository.base"], entityManagerFactoryRef = "entityManager")
 class DataStoreConfig {
 
     @Bean
@@ -35,7 +35,7 @@ class DataStoreConfig {
 
         return LocalContainerEntityManagerFactoryBean().apply {
             dataSource = clientDataSource()
-            setPackagesToScan("oauth.entity")
+            setPackagesToScan("venus.utillibrary.entity.base")
             jpaVendorAdapter = HibernateJpaVendorAdapter()
             setJpaPropertyMap(properties)
         }
