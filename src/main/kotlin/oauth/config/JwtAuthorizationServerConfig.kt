@@ -68,7 +68,8 @@ class JwtAuthorizationServerConfig(private val authenticationManager: Authentica
 
     override fun configure(clients: ClientDetailsServiceConfigurer) {
         clients
-                .jdbc(clientDataSource).passwordEncoder(BCryptPasswordEncoder())
+                .jdbc(clientDataSource)
+                .passwordEncoder(BCryptPasswordEncoder())
     }
 
     companion object {

@@ -23,19 +23,19 @@ class DataStoreConfig {
     @Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
-    fun clientDataSource(): DataSource = DataSourceBuilder.create().build()
+    fun dataSource(): DataSource = DataSourceBuilder.create().build()
 
     @Bean
     @Primary
     fun entityManager(): LocalContainerEntityManagerFactoryBean {
 
         val properties = HashMap<String, Any>()
-        properties["hibernate.hbm2ddl.auto"] = "update"
+        properties["hibernate.hbm2ddl.auto"] = "validate"
         properties["hibernate.dialect"] = "org.hibernate.dialect.MySQL5InnoDBDialect"
 
         return LocalContainerEntityManagerFactoryBean().apply {
-            dataSource = clientDataSource()
-            setPackagesToScan("venus.utillibrary.entity.base")
+            dataSource = dataSource()
+            setPackagesToScan("venus.utillibrary.model.base")
             jpaVendorAdapter = HibernateJpaVendorAdapter()
             setJpaPropertyMap(properties)
         }
